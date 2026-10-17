@@ -1,16 +1,28 @@
-# Face Login Enrollment Data: Documentation Only
+# Face Login Enrollment Data â€” Documentation
 
-This repository documents the enrollment dataset used by the [face recognition login system](https://github.com/faiyaadmahabub-hash/face-recognition-login-system). Photos, face embeddings, names, staff identifiers and attendance records stay local and are excluded from this repository.
+A documentation companion to the [face recognition login and attendance system](https://github.com/faiyaadmahabub-hash/face-recognition-login-system). It explains how local enrollment data is organized while keeping staff photographs, embeddings, identifiers and attendance records out of Git.
 
-## Local dataset
+**Status:** documentation only. This repository intentionally contains no biometric dataset and has no standalone application to run.
 
-The original dataset has four people, with 7, 4, 5 and 5 source photos. Accepted photos produce L2-normalized 512-dimensional InsightFace embeddings saved as NumPy arrays. This repository contains no photographs or biometric arrays.
+## Local workflow
 
-## Local setup
+```mermaid
+flowchart LR
+    A[Consented local photographs] --> B[Face-login enrollment script]
+    B --> C[Local normalized embeddings]
+    C --> D[Local recognition application]
+```
 
-1. Obtain consent before enrolling a person.
-2. Add your own photos under `data/person_01/`, `data/person_02/` and so on in the face-login project.
-3. Run `python face_enrollment/enroll_faces.py` there.
-4. Store names and roles only in the ignored local `metadata/people.json` file.
+Use your own consented photos in the face-login application's `data/person_XX/` folders. Run its enrollment script, then maintain private metadata in its ignored `metadata/people.json`. Keep retention and access arrangements appropriate to the people enrolled.
 
-The `.gitignore` excludes photographs, NumPy arrays, enrollment directories and private metadata. Keep the original internship dataset in its existing local folder.
+The original local collection was described as four people with 7, 4, 5 and 5 source photos. That description is historical context, not a public dataset or a recognition benchmark.
+
+## Verification
+
+```bash
+python docs/verify_offline.py
+```
+
+On 17 October 2026, the tracked-file check found no photographs, biometric arrays or model weights; representative enrollment photos, embeddings, metadata and attendance logs matched `.gitignore`. The check does not inspect or publish private local files.
+
+See the [verification record](docs/VERIFICATION.md) and [original documentation](docs/PROJECT_GUIDE.md). Screenshots of staff enrollment records are deliberately excluded.

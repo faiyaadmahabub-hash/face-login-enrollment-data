@@ -1,0 +1,6 @@
+Ignored: data/person_01/photo.jpg
+Ignored: embeddings/person_01.npy
+Ignored: metadata/people.json
+Ignored: logs.json
+PASS: no tracked photographs/biometric arrays/model weights; representative private records ignored.
+Documentation-only repository: no executable system or recognition accuracy result.
