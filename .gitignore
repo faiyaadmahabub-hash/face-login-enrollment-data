@@ -76,3 +76,11 @@ metadata/
 /*
 !/README.md
 !/.gitignore
+
+# Publish only the reviewed documentation files
+!docs/
+docs/*
+!docs/PROJECT_GUIDE.md
+!docs/VERIFICATION.md
+!docs/verify_offline.py
+!docs/results.txt
